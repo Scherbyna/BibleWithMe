@@ -29,14 +29,15 @@
 /* СТИЛІ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ */
 @media (max-width: 768px) {
     .container {
-        flex-direction: column; /* Розташування кнопок у стовпчик */
-        gap: 15px; /* Зменшений відступ між елементами */
-    }
-    .button {
-        width: 80px;
-        height: 80px;
-        font-size: 12px; /* Менший розмір тексту */
-    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Центрування по вертикалі */
+    margin: 0 auto; /* Центрування по горизонталі */
+    gap: 20px; /* Відстань між кнопками */
+    padding: 20px;
+}
 }
 
 /* СТИЛІ ДЛЯ ДЕСКТОПІВ */
