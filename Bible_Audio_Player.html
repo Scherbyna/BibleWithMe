@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Біблія, що завжди зі мною</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            margin: 40px auto;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+        .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .red { background-color: #e74c3c; }
+        .yellow { background-color: #f1c40f; }
+        .blue { background-color: #3498db; }
+        .green { background-color: #2ecc71; }
+        .purple { background-color: #9b59b6; }
+        .orange { background-color: #e67e22; }
+    </style>
+</head>
+<body>
+    <h1>Біблія, що завжди зі мною</h1>
+    <div class="container">
+        <div class="button red" onclick="playAudio('11kmcZSoX_f8HZbRB-h43-p2LDd65EDfc')">Филп. 4:6</div>
+        <div class="button yellow" onclick="playAudio('12yiO5A3dozr_iiEnOYrTJrEMWCv9lJVt')">Пс. 145:9</div>
+        <div class="button blue" onclick="playAudio('16OS-ZeMzK86wLt9iKbsi5gajwJ_ELocP')">1Ів. 5:1</div>
+        <div class="button green" onclick="playAudio('1ABlxyCkDCcIjqHsXGKO1zEMwLW8HlqAo')">1 Петра 5:7</div>
+        <div class="button purple" onclick="playAudio('1Ag8Xw5rLqjzuBwSk2MkjHd-T1fpBKlNb')">Мр. 10:14</div>
+        <div class="button orange" onclick="playAudio('1C5h0N38Z4cqPhBfjCLp2n7E7PwAxdS3n')">Іс. Нав. 1:9</div>
+        <div class="button red" onclick="playAudio('1GVix6IruGRHTB6kxD_jPy1lGZFgMPMQT')">Мт. 6:33</div>
+        <div class="button yellow" onclick="playAudio('1KWEF4GgLQ6E4Ht5immSo2AkgZSDVY_0a')">Пс. 23:1</div>
+        <div class="button blue" onclick="playAudio('1M2THYHf5eWsT4X1qexwN-fHks1ox75gI')">Ів. 11:25</div>
+        <div class="button green" onclick="playAudio('1Oc6TZGT7NZsT5rNU6_HBqh_AelSR-fUa')">Мат. 7:7</div>
+        <div class="button purple" onclick="playAudio('1RUxVI32Nk9br11neV8gnY8pLpOws9alB')">Пс. 138:14</div>
+        <div class="button orange" onclick="playAudio('1Ve2aqofi1NS9Rg7Q7bB2i6ltj0DnyxO7')">Ів. 3:16</div>
+        <div class="button red" onclick="playAudio('1ZbzmmhfEDFo3G6nsiucesSavF8AxFcLa')">Пр. 3:5</div>
+        <div class="button yellow" onclick="playAudio('1Zftl8DMuzyxIaeh5tg65_5OvOHocsU2F')">Пс. 103:12</div>
+        <div class="button blue" onclick="playAudio('1bMJVvEdyKIIIaPOiguYCp_ztrz9izyAB')">Іс. 41:10</div>
+        <div class="button green" onclick="playAudio('1cK0nSrU27rAhjmq4U4Fp973DQnzoiksQ')">Єф. 4:32</div>
+        <div class="button purple" onclick="playAudio('1dmujSqLlicUlZz0uk4gugx3io739K3ka')">Лук. 2:11</div>
+        <div class="button orange" onclick="playAudio('1f1QxsfuEgvMN9fGdASbxyE5DII5SrFeo')">Пов. Закону 6:5</div>
+        <div class="button red" onclick="playAudio('1gi3gJ4QF0ElHN0n4J2ygokWTKhGBVKqT')">Пс. 106:1</div>
+        <div class="button yellow" onclick="playAudio('1h8_KYM63HLM_Q_M1CZyByVz3QcQjGZ8O')">Мат. 7:12</div>
+        <div class="button blue" onclick="playAudio('1i4B2Vrwv23Ho7M7ddAiegm9qpOC4nqzO')">Филп. 4:4</div>
+        <div class="button green" onclick="playAudio('1waxf8VXJFwIw5CJJyEzWPpVtRMuYmtoQ')">Єр. 29:11</div>
+    </div>
+
+    <audio id="audio-player"></audio>
+
+    <script>
+        function playAudio(fileId) {
+            const audioPlayer = document.getElementById('audio-player');
+            audioPlayer.src = `https://drive.google.com/uc?export=download&id=${fileId}`;
+            audioPlayer.play();
+        }
+    </script>
+</body>
+</html>
