@@ -97,6 +97,17 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s, color 0.3s;
         }
+
+        /* Для мобільних пристроїв (ширина екрану менше 768px) */
+        @media (max-width: 768px) {
+            .dark-mode-toggle {
+                top: 60px; /* Зрушити кнопку нижче */
+                right: 10px; /* Ближче до краю */
+                font-size: 12px; /* Зменшений розмір тексту */
+                padding: 8px 12px; /* Менший розмір кнопки */
+            }
+        }
+        
         .dark-mode-toggle:hover {
             background-color: #555;
         }
