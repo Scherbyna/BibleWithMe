@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Біблія, що завжди зі мною</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            margin: 40px auto;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+        .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .red { background-color: #e74c3c; }
+        .yellow { background-color: #f1c40f; }
+        .blue { background-color: #3498db; }
+        .green { background-color: #2ecc71; }
+        .purple { background-color: #9b59b6; }
+        .orange { background-color: #e67e22; }
+    </style>
+</head>
+<body>
+    <h1>Біблія, що завжди зі мною</h1>
+    <div class="container">
+        <div class="button red" onclick="playAudio('Fulyp._4_6.mp3')">Филп. 4:6</div>
+        <div class="button yellow" onclick="playAudio('Ps._145_9.mp3')">Пс. 145:9</div>
+        <div class="button blue" onclick="playAudio('1Iv._5_1.mp3')">1 Ів. 5:1</div>
+        <div class="button green" onclick="playAudio('1_Petra_5_7.mp3')">1 Петра 5:7</div>
+        <div class="button purple" onclick="playAudio('Mr._10_14.mp3')">Мр. 10:14</div>
+        <div class="button orange" onclick="playAudio('Is._Nav._1_9.mp3')">Іс. Нав. 1:9</div>
+        <div class="button red" onclick="playAudio('Mt._6_33.mp3')">Мт. 6:33</div>
+        <div class="button yellow" onclick="playAudio('Ps._23_1.mp3')">Пс. 23:1</div>
+        <div class="button blue" onclick="playAudio('Iv._11_25.mp3')">Ів. 11:25</div>
+        <div class="button green" onclick="playAudio('Mat._7_7.mp3')">Мат. 7:7</div>
+        <div class="button purple" onclick="playAudio('Ps._138_14.mp3')">Пс. 138:14</div>
+        <div class="button orange" onclick="playAudio('Iv._3_16.mp3')">Ів. 3:16</div>
+        <div class="button red" onclick="playAudio('Pr._3_5.mp3')">Пр. 3:5</div>
+        <div class="button yellow" onclick="playAudio('Ps._103_12.mp3')">Пс. 103:12</div>
+        <div class="button blue" onclick="playAudio('Is._41_10.mp3')">Іс. 41:10</div>
+        <div class="button green" onclick="playAudio('Ef._4_32.mp3')">Єф. 4:32</div>
+        <div class="button purple" onclick="playAudio('Luk._2_11.mp3')">Лук. 2:11</div>
+        <div class="button orange" onclick="playAudio('Pov._Zakony_6_5.mp3')">Пов. Закону 6:5</div>
+        <div class="button red" onclick="playAudio('Ps._106_1.mp3')">Пс. 106:1</div>
+        <div class="button yellow" onclick="playAudio('Mat._7_12.mp3')">Мат. 7:12</div>
+        <div class="button blue" onclick="playAudio('Fylyp._4_4.mp3')">Филп. 4:4</div>
+        <div class="button green" onclick="playAudio('Yer._29_11.mp3')">Єр. 29:11</div>
+
+    </div>
+
+    <audio id="audio-player" controls style="display: block; margin: 20px auto; max-width: 600px;"></audio>
+
+    <script>
+        function playAudio(fileUrl) {
+            const audioPlayer = document.getElementById('audio-player');
+            audioPlayer.src = fileUrl;
+            audioPlayer.play();
+        }
+    </script>
+</body>
+</html>
