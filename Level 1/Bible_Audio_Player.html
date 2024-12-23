@@ -71,6 +71,10 @@
         .purple { background-color: #9b59b6; }
         .orange { background-color: #e67e22; }
 
+        .button.hidden {
+            color: transparent; /* Робимо текст невидимим */
+        }
+
         /* Гамбургер-меню */
         .menu {
             position: fixed;
@@ -145,6 +149,7 @@
         <button class="menu-toggle" onclick="toggleMenu()">✕</button>
         <button onclick="toggleDarkMode()">Темний режим</button>
         <button onclick="shuffleButtons()">Перемішати</button>
+        <button onclick="toggleButtonTitles()">Приховати назви текстів</button>
         <button onclick="triggerFileInput()">Додати аудіо-кнопку</button>
         <input type="file" class="file-input" id="file-input" multiple accept=".mp3" onchange="createButtonsFromFiles()">
     </div>
@@ -179,6 +184,21 @@
     <audio id="audio-player" controls style="display: block; margin: 20px auto; max-width: 600px;"></audio>
 
     <script>
+
+        let titlesHidden = false; // Стан видимості назв
+
+        // Функція для перемикання видимості назв кнопок
+        function toggleButtonTitles() {
+            const buttons = document.querySelectorAll('.button');
+            titlesHidden = !titlesHidden; // Змінюємо стан
+            buttons.forEach(button => {
+                if (titlesHidden) {
+                    button.classList.add('hidden');
+                } else {
+                    button.classList.remove('hidden');
+                }
+            });
+        }
 
         function playAudio(fileUrl) {
         const audioPlayer = document.getElementById('audio-player');
