@@ -26,6 +26,24 @@
             margin: 40px auto;
             max-width: 600px;
             padding: 0 20px;
+            justify-items: center; /* Центрування кнопок по горизонталі */
+        }
+        /* Для мобільних пристроїв (ширина екрану менше 768px) */
+        @media (max-width: 768px) {
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center; /* Центрування контейнера по горизонталі */
+                align-items: center;    /* Центрування контейнера по вертикалі */
+                gap: 15px;              /* Менший відступ між кнопками */
+                min-height: 100vh;      /* Центрування по вертикалі */
+                padding: 20px;
+            }
+            .button {
+                width: 80px;            /* Зменшений розмір кнопок */
+                height: 80px;           /* Зменшений розмір кнопок */
+                font-size: 12px;        /* Менший розмір тексту */
+            }
         }
         .button {
             display: flex;
