@@ -150,6 +150,7 @@
         <button onclick="toggleDarkMode()">Темний режим</button>
         <button onclick="shuffleButtons()">Перемішати</button>
         <button onclick="toggleButtonTitles()">Приховати назви текстів</button>
+        <button onclick="clearAllButtons()">Чистий лист</button>
         <button onclick="triggerFileInput()">Додати аудіо-кнопку</button>
         <input type="file" class="file-input" id="file-input" multiple accept=".mp3" onchange="createButtonsFromFiles()">
     </div>
@@ -261,6 +262,13 @@
             const menu = document.getElementById('menu');
             menu.classList.toggle('open');
         }
+
+        // Функція для видалення всіх аудіо-кнопок
+        function clearAllButtons() {
+            const container = document.getElementById('button-container');
+            container.innerHTML = ''; // Видаляємо весь вміст контейнера
+        }
+
     </script>
 </body>
 </html>
