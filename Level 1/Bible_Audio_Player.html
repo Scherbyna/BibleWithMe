@@ -134,7 +134,9 @@
             background-color: #121212; /* Темний фон */
             color: #f9f9f9; /* Світлий текст */
         }
-
+        .file-input {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -143,6 +145,8 @@
         <button class="menu-toggle" onclick="toggleMenu()">✕</button>
         <button onclick="toggleDarkMode()">Темний режим</button>
         <button onclick="shuffleButtons()">Перемішати</button>
+        <button onclick="triggerFileInput()">Додати аудіо-кнопку</button>
+        <input type="file" class="file-input" id="file-input" multiple accept=".mp3" onchange="createButtonsFromFiles()">
     </div>
     <h1>Біблія, що завжди зі мною</h1>
     <div class="container" id="button-container">
@@ -182,6 +186,43 @@
         audioPlayer.play();
     }
         
+        // Функція для генерації випадкового кольору, окрім білого
+        function getRandomColor() {
+            let color;
+            do {
+                color = `#${Math.floor(Math.random() * 16777215).toString(16)}`; // Генерує випадковий колір
+            } while (color === '#ffffff' || color === '#fff'); // Виключає білий
+            return color;
+        }
+
+        // Функція для виклику вікна вибору файлів
+        function triggerFileInput() {
+            document.getElementById('file-input').click();
+        }
+
+        // Функція для створення кнопок із завантажених файлів
+        function createButtonsFromFiles() {
+            const files = document.getElementById('file-input').files;
+            const container = document.getElementById('button-container');
+            
+            for (const file of files) {
+                // Отримуємо ім'я файлу та змінюємо "_" на ":"
+                const fileName = file.name.replace('.mp3', '').replace(/_/g, ':');
+
+                // Створюємо кнопку
+                const button = document.createElement('div');
+                button.className = 'button';
+                button.textContent = fileName;
+
+                // Присвоюємо рандомний колір
+                button.style.backgroundColor = getRandomColor();
+
+                // Додаємо функцію відтворення
+                button.onclick = () => playAudio(URL.createObjectURL(file));
+                container.appendChild(button);
+            }
+        }
+
         // Функція для перемикання темного режиму
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
