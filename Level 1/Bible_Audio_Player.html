@@ -19,6 +19,12 @@
             color: inherit;
             margin: 20px 0;
         }
+        #timer {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #444;
+        }
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -163,6 +169,7 @@
         <input type="file" class="file-input" id="file-input" multiple accept=".mp3" onchange="createButtonsFromFiles()">
     </div>
     <h1>Біблія, що завжди зі мною</h1>
+    <div id="timer"></div>
     <div class="container" id="button-container">
         <div class="button red" onclick="playAudio('Fulyp._4_6.mp3')">Филп. 4:6</div>
         <div class="button yellow" onclick="playAudio('Ps._145_9.mp3')">Пс. 145:9</div>
@@ -193,8 +200,9 @@
     <audio id="audio-player" controls style="display: none; margin: 20px auto; max-width: 600px;"></audio>
 
     <script>
-
         let currentAudio = null; // Для збереження випадкового аудіо
+        let timerInterval = null; // Інтервал для таймера
+        let timeLeft = 10; // Час на відповідь
 
         // Функція для відтворення випадкового аудіо
         function playRandomAudio() {
@@ -204,15 +212,41 @@
             const audioPlayer = document.getElementById('audio-player');
             audioPlayer.src = currentAudio;
             audioPlayer.play();
+
+            // Запускаємо таймер
+            startTimer();
+        }
+
+        // Функція для запуску таймера
+        function startTimer() {
+            clearInterval(timerInterval); // Скидаємо попередній таймер
+            timeLeft = 25; // Початковий час
+            const timer = document.getElementById('timer');
+            timer.textContent = `Час: ${timeLeft} секунд`;
+
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                if (timeLeft > 0) {
+                    timer.textContent = `Час: ${timeLeft} секунд`;
+                } else {
+                    clearInterval(timerInterval);
+                    timer.textContent = 'Час вийшов';
+                }
+            }, 1000);
         }
 
         // Функція для перевірки відповіді
         function checkAnswer(button, audio) {
+            clearInterval(timerInterval); // Зупиняємо таймер
+            const timer = document.getElementById('timer');
+            timer.textContent = ''; // Прибираємо таймер із екрана
+
             if (audio === currentAudio) {
                 button.classList.add('correct');
             } else {
                 button.classList.add('incorrect');
             }
+
             // Очищуємо статус через 2 секунди
             setTimeout(() => {
                 button.classList.remove('correct');
