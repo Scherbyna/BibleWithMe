@@ -175,6 +175,13 @@
     <audio id="audio-player" controls style="display: block; margin: 20px auto; max-width: 600px;"></audio>
 
     <script>
+
+        function playAudio(fileUrl) {
+        const audioPlayer = document.getElementById('audio-player');
+        audioPlayer.src = fileUrl;
+        audioPlayer.play();
+    }
+        
         // Функція для перемикання темного режиму
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
