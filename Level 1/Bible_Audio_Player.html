@@ -109,6 +109,13 @@
             background-color: rgba(255, 255, 255, 0.4);
         }
 
+        .button.correct {
+            box-shadow: 0 0 15px 5px #98fb98; /* Пастельно-зелений */
+        }
+        .button.incorrect {
+            box-shadow: 0 0 15px 5px #ff6961; /* Пастельно-червоний */
+        }
+
         /* Гамбургер-кнопка */
         .menu-toggle {
             position: fixed;
@@ -150,6 +157,7 @@
         <button onclick="toggleDarkMode()">Темний режим</button>
         <button onclick="shuffleButtons()">Перемішати</button>
         <button onclick="toggleButtonTitles()">Приховати назви текстів</button>
+        <button onclick="playRandomAudio()">Випадкове аудіо для вивчення</button>
         <button onclick="clearAllButtons()">Чистий лист</button>
         <button onclick="triggerFileInput()">Додати аудіо-кнопку</button>
         <input type="file" class="file-input" id="file-input" multiple accept=".mp3" onchange="createButtonsFromFiles()">
@@ -185,6 +193,32 @@
     <audio id="audio-player" controls style="display: none; margin: 20px auto; max-width: 600px;"></audio>
 
     <script>
+
+        let currentAudio = null; // Для збереження випадкового аудіо
+
+        // Функція для відтворення випадкового аудіо
+        function playRandomAudio() {
+            const buttons = document.querySelectorAll('.button');
+            const randomButton = buttons[Math.floor(Math.random() * buttons.length)];
+            currentAudio = randomButton.getAttribute('onclick').match(/'([^']+)'/)[1]; // Витягуємо шлях аудіо
+            const audioPlayer = document.getElementById('audio-player');
+            audioPlayer.src = currentAudio;
+            audioPlayer.play();
+        }
+
+        // Функція для перевірки відповіді
+        function checkAnswer(button, audio) {
+            if (audio === currentAudio) {
+                button.classList.add('correct');
+            } else {
+                button.classList.add('incorrect');
+            }
+            // Очищуємо статус через 2 секунди
+            setTimeout(() => {
+                button.classList.remove('correct');
+                button.classList.remove('incorrect');
+            }, 2000);
+        }
 
         let titlesHidden = false; // Стан видимості назв
 
